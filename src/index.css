@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700;800&family=JetBrains+Mono:wght@400;500;700;800&family=Cabinet+Grotesk:wght@800;900&family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-display: "Space Grotesk", "Cabinet Grotesk", sans-serif;
+}
+
+/* Brutalist Custom Styling Utilities */
+@layer base {
+  body {
+    background-color: #000000;
+    color: #ffffff;
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+  }
+}
+
+.brut-border {
+  border: 4px solid #ffffff;
+}
+
+.brut-border-red {
+  border: 4px solid #ff0000;
+}
+
+.brut-shadow {
+  box-shadow: 6px 6px 0px 0px #ffffff;
+}
+
+.brut-shadow-red {
+  box-shadow: 6px 6px 0px 0px #ff0000;
+}
+
+.brut-shadow-active:active {
+  transform: translate(3px, 3px);
+  box-shadow: 3px 3px 0px 0px #ffffff;
+}
+
+.brut-shadow-red-active:active {
+  transform: translate(3px, 3px);
+  box-shadow: 3px 3px 0px 0px #ff0000;
+}
+
+/* Monospace ticker scanlines animation */
+@keyframes scanline {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 100%;
+  }
+}
+
+.brut-grid-bg {
+  background-size: 40px 40px;
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.brut-marquee {
+  animation: marquee 24s linear infinite;
+}
+
+/* Brutalist map support (using OpenStreetMap with high-contrast tactical black-ops theme) */
+.brut-leaflet-map {
+  width: 100%;
+  height: 100%;
+  background-color: #000000 !important;
+}
+
+.brut-leaflet-map .leaflet-tile-container {
+  filter: invert(100%) hue-rotate(180deg) brightness(80%) contrast(120%);
+}
+
+/* Custom Brutalist Popups */
+.brutalist-leaflet-popup .leaflet-popup-content-wrapper {
+  background: #000000 !important;
+  color: #ffffff !important;
+  border: 3px solid #ffffff !important;
+  border-radius: 0px !important;
+  font-family: "JetBrains Mono", ui-monospace, monospace !important;
+}
+
+.brutalist-leaflet-popup .leaflet-popup-tip {
+  background: #ffffff !important;
+  border-radius: 0px !important;
+}
+
+.brutalist-leaflet-popup .leaflet-popup-content {
+  margin: 12px 14px !important;
+}
+
+.brutalist-leaflet-popup a.leaflet-popup-close-button {
+  color: #ff0000 !important;
+  padding: 6px 8px 0 0 !important;
+}
+
+/* Make Leaflet attribution black to match background */
+.brut-leaflet-map .leaflet-control-attribution {
+  background: #000000 !important;
+  color: #71717a !important;
+  font-family: monospace !important;
+  font-size: 8px !important;
+  border: 1px solid #27272a !important;
+}
+
+
